@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      - name: Run a multi-line script
+        run: |
+          echo Hello, world 2!
+          echo Hello, world 3!
+
+      - name: Increment BUILD_NUMBER
+        run: |
+          CURRENT=${BUILD_NUMBER:-0}  # По умолчанию 0 если не установлено
+          NEW_BUILD_NUMBER=$((CURRENT + 1))
+          echo "Build number: ${CURRENT} → ${NEW_BUILD_NUMBER}"
+          echo "BUILD_NUMBER=${NEW_BUILD_NUMBER}" >> $GITHUB_ENV
