@@ -23,5 +23,5 @@ jobs:
           NEW_BUILD_NUMBER=$((CURRENT + 1))
           echo "Build number: ${CURRENT} → ${NEW_BUILD_NUMBER}"
           echo "BUILD_NUMBER=${NEW_BUILD_NUMBER}" >> $GITHUB_ENV
-          echo ${{ vars.HELLO_WORLD_STEP }}
-          echo 14 >> ${{ vars.HELLO_WORLD_STEP }}
+          echo ${{ vars.BUILD_NUMBER }}
+          echo "14" >> ${{ vars.BUILD_NUMBER }}
